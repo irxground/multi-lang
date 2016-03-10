@@ -1,5 +1,14 @@
 
+# Crystal
+.crystal
+crystal/*
+!crystal/*.cr
+
+# Pascal
 pascal/*
 !pascal/*.pas
 
+# Rust
 rust/target
+
+
