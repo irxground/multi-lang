@@ -4,6 +4,10 @@
 crystal/*
 !crystal/*.cr
 
+# D
+d/*
+!d/*.d
+
 # Pascal
 pascal/*
 !pascal/*.pas
