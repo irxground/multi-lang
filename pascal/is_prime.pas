@@ -16,7 +16,7 @@ begin
     Sieve[I] := True;
   for I := 2 to N do
     begin
-      if not Sieve[N] then
+      if not Sieve[I] then
         continue;
       J := I * I;
       while J <= N do
@@ -43,9 +43,9 @@ begin
   Max := MaxValue(Values);
   PrimeTable := Sieve(Max);
 
-  for I := 0 to N - 1 do
+  for I in Values do
     begin
-      if PrimeTable[Values[I]] then
+      if PrimeTable[I] then
         Write('Yes ')
       else
         Write('No ');
