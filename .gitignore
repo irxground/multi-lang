@@ -8,6 +8,10 @@ crystal/*
 d/*
 !d/*.d
 
+# Nim
+nim/*
+!nim/*.nim
+
 # Pascal
 pascal/*
 !pascal/*.pas

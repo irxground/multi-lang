@@ -2,6 +2,7 @@
 SUFFIX = {
   crystal: 'cr',
   d: 'd',
+  nim: 'nim',
   pascal: 'pas',
   rust: 'rs',
 }
@@ -21,6 +22,8 @@ def run(lang, command, args)
       sh "crystal", "run", fname, "--", *args
     when "d"
       compile_and_run("dmd", fname, command, args)
+    when "nim"
+      sh "nim", "compile", "--hints:off", "--run", command, *args
     when "pascal"
       compile_and_run(["fpc", "-v0"], fname, command, args)
     when "rust"
@@ -30,7 +33,7 @@ def run(lang, command, args)
 end
 
 task :is_prime do
-  langs = %w(crystal d pascal rust)
+  langs = %w(crystal d nim pascal rust)
   langs.each do |lang|
     run lang, "is_prime", %w(1 2 3 4 5 6 7 8 9 10)
   end
