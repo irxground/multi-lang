@@ -18,14 +18,14 @@ fn sieve(n: usize) -> Vec<bool> {
 }
 
 fn main() {
-    let values: Vec<usize> = env::args().skip(1).map(|s: String| s.parse().unwrap()).collect();
+    let values: Vec<usize> = env::args().skip(1).map(|s| s.parse().unwrap()).collect();
     if values.len() == 0 {
         return;
     }
     let max = values.iter().max().unwrap().clone();
     let prime_table = sieve(max);
-    for i in &values {
-        if prime_table[*i] {
+    for &i in &values {
+        if prime_table[i] {
             print!("Yes ");
         } else {
             print!("No ");
