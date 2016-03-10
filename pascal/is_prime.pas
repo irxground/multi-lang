@@ -45,12 +45,10 @@ begin
 
   for I := 0 to N - 1 do
     begin
-      if I <> 0 then
-        Write(' ');
       if PrimeTable[Values[I]] then
-        Write('Yes')
+        Write('Yes ')
       else
-        Write('No');
+        Write('No ');
     end;
   WriteLn('');
 end.
