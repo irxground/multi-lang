@@ -20,4 +20,6 @@ pascal/*
 rust/*
 !rust/*.rs
 
-
+# Vala
+vala/*
+!vala/*.vala

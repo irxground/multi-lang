@@ -1,5 +1,5 @@
 program Hello;
 
 begin
-  WriteLn('Hello Pascal');
+  WriteLn('Hello, Pascal');
 end.
