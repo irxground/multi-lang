@@ -22,7 +22,7 @@ fn main() {
     if values.len() == 0 {
         return;
     }
-    let max = values.iter().max().unwrap().clone();
+    let max = *values.iter().max().unwrap();
     let prime_table = sieve(max);
     for &i in &values {
         if prime_table[i] {
