@@ -7,11 +7,6 @@ SUFFIX = {
   rust: 'rs',
 }
 
-def compile_and_run(compiler, fname, command, args)
-  sh *Array(compiler), fname
-  sh "./#{command}", *args
-end
-
 def run(lang, command, args)
   sfx = SUFFIX[lang.to_sym] or raise "Unknown language: #{lang}"
   fname = "#{command}.#{sfx}"
@@ -19,16 +14,17 @@ def run(lang, command, args)
   Dir.chdir(lang) do
     case lang
     when "crystal"
-      sh "crystal", "run", fname, "--", *args
+      sh "crystal", "build", fname
     when "d"
-      compile_and_run("dmd", fname, command, args)
+      sh "dmd", fname
     when "nim"
-      sh "nim", "compile", "--hints:off", "--run", command, *args
+      sh "nim", "compile", "--hints:off", fname
     when "pascal"
-      compile_and_run(["fpc", "-v0"], fname, command, args)
+      sh "fpc", "-v0", fname
     when "rust"
-      sh "cargo", "run", "-q", "--bin", command, *args
+      sh "rustc", fname
     end
+    sh "./#{command}", *args
   end
 end
 

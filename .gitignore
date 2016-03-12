@@ -17,6 +17,7 @@ pascal/*
 !pascal/*.pas
 
 # Rust
-rust/target
+rust/*
+!rust/*.rs
 
 
