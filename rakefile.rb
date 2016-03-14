@@ -6,6 +6,7 @@ SUFFIX = {
   nim: 'nim',
   pascal: 'pas',
   rust: 'rs',
+  swift: 'swift',
   vala: 'vala',
 }
 
@@ -29,6 +30,8 @@ def run(lang, command, args = [])
       sh "fpc", "-v0", fname
     when "rust"
       sh "rustc", fname
+    when "swift"
+      sh "swiftc", fname
     when "vala"
       sh "valac", fname
     end
@@ -39,7 +42,7 @@ rescue => e
   puts yellow(e.message)
 end
 
-LANGS = %w(c crystal d nim pascal rust vala)
+LANGS = %w(c crystal d nim pascal rust swift vala)
 
 task :hello do
   LANGS.each do |lang|
