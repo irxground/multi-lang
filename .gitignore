@@ -12,6 +12,10 @@ crystal/*
 d/*
 !d/*.d
 
+# Go
+go/*
+!go/*.go
+
 # Nim
 nim/*
 !nim/*.nim

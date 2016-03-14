@@ -3,12 +3,14 @@ SUFFIX = {
   c: 'c',
   crystal: 'cr',
   d: 'd',
+  go: 'go',
   nim: 'nim',
   pascal: 'pas',
   rust: 'rs',
   swift: 'swift',
   vala: 'vala',
 }
+LANGS = SUFFIX.keys.map &:to_s
 
 def run(lang, command, args = [])
   sfx = SUFFIX[lang.to_sym] or raise "Unknown language: #{lang}"
@@ -24,6 +26,8 @@ def run(lang, command, args = [])
       sh "crystal", "build", fname
     when "d"
       sh "dmd", fname
+    when "go"
+      sh "go", "build", fname
     when "nim"
       sh "nim", "compile", "--hints:off", fname
     when "pascal"
@@ -41,8 +45,6 @@ def run(lang, command, args = [])
 rescue => e
   puts yellow(e.message)
 end
-
-LANGS = %w(c crystal d nim pascal rust swift vala)
 
 task :hello do
   LANGS.each do |lang|
