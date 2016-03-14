@@ -53,6 +53,12 @@ task :is_prime do
   end
 end
 
+task :oop do
+  LANGS.each do |lang|
+    run lang, "oop"
+  end
+end
+
 def green(str)
   "\e[32m#{str}\e[0m"
 end
