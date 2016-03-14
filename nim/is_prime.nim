@@ -6,9 +6,9 @@ proc sieve(n: int): seq[bool] =
   var table = newSeq[bool](n + 1)
   table[0] = false
   table[1] = false
-  for i in countup(2, table.len - 1):
+  for i in 2..high(table):
     table[i] = true
-  for i in countup(2, table.len - 1):
+  for i in 2..high(table):
     if not table[i]:
       continue
     var j = i * i
@@ -21,7 +21,7 @@ if paramCount() == 0:
   quit()
 
 var values = newSeq[int](paramCount())
-for i in countup(0, values.len - 1):
+for i in 0..high(values):
   values[i] = parseInt(paramStr(i + 1))
 
 let maxValue = foldl(values, max(a, b))
