@@ -1,4 +1,8 @@
 
+# C
+c/*
+!c/*.c
+
 # Crystal
 .crystal
 crystal/*
