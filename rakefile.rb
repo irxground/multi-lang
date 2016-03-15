@@ -55,6 +55,8 @@ end
 task :is_prime do
   LANGS.each do |lang|
     run lang, "is_prime", %w(1 2 3 4 5 6 7 8 9 10)
+    # TODO support invalid arguments
+    # run lang, "is_prime", %w(1 2 3 4 5 6 7 8 9 0 abc)
   end
 end
 

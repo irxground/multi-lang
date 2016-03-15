@@ -12,17 +12,23 @@ func main() {
 	}
 
 	values := make([]int, len(os.Args) - 1)
-	max := -1;
+	max := 0;
 	for i := 0; i < len(values); i++ {
-		v, _ := strconv.Atoi(os.Args[i + 1])
-		values[i] = v
-		if v > max {
-			max = v
+		v, err := strconv.Atoi(os.Args[i + 1])
+		if err != nil {
+			values[i] = -1
+		} else {
+			values[i] = v
+			if v > max {
+				max = v
+			}
 		}
 	}
 	prime_table := sieve(max)
 	for _, num := range(values) {
-		if prime_table[num] {
+		if num < 0 {
+			fmt.Print("Err ")
+		} else if prime_table[num] {
 			fmt.Print("Yes ")
 		} else {
 			fmt.Print("No ")

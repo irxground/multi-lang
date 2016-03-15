@@ -7,6 +7,7 @@ void main(string[] args) {
   if (args.length == 1) {
     return;
   }
+  // TODO: support invalid arguments
   auto values = args[1..$].map!(str => to!int(str));
   auto max = values.reduce!(max);
   auto table = sieve(max);

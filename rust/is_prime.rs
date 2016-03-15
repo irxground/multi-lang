@@ -20,6 +20,7 @@ fn sieve(n: usize) -> Vec<bool> {
 }
 
 fn main() {
+    // TODO: support invalid arguments
     let values: Vec<usize> = env::args().skip(1).map(|s| s.parse().unwrap()).collect();
     if values.len() == 0 {
         return;

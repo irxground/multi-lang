@@ -18,6 +18,7 @@ proc sieve(n: int): seq[bool] =
 if paramCount() == 0:
   quit()
 
+# TODO: support invalid arguments
 var values = newSeq[int](paramCount())
 for i in 0..high(values):
   values[i] = parseInt(paramStr(i + 1))

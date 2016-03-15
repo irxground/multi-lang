@@ -36,6 +36,7 @@ begin
   if N = 0 then
     exit;
 
+  // TODO: support invalid arguments
   SetLength(Values, N);
   for I := 0 to N - 1 do
     Values[I] := StrToInt(ParamStr(I + 1));

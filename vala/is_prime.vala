@@ -5,6 +5,7 @@ int main(string[] args) {
   int[] values = new int[args.length - 1];
   int max = 0;
   for (int i = 0; i < values.length; i++) {
+    // TODO: support invalid arguments
     int v = int.parse(args[i + 1]);
     values[i] = v;
     if (v > max) max = v;

@@ -1,14 +1,18 @@
 
-values = ARGV.map(&.to_i)
+values = ARGV.map(&.to_i?)
 exit if values.empty?
 
-max = values.max
+max = values.compact.max? || 0
 prime_table = sieve(max)
 values.each do |num|
-  if prime_table[num]
-    print "Yes "
+  if num
+    if prime_table[num]
+      print "Yes "
+    else
+      print "No "
+    end
   else
-    print "No "
+    print "Err "
   end
 end
 puts ""
