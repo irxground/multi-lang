@@ -1,6 +1,5 @@
-
+exit if ARGV.empty?
 values = ARGV.map(&.to_i?)
-exit if values.empty?
 
 max = values.compact.max? || 0
 prime_table = sieve(max)
