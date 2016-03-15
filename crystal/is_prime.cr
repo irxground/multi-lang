@@ -16,7 +16,7 @@ puts ""
 def sieve(n): Array(Bool)
   array = Array.new(n + 1, true)
   array[0] = false
-  array[1] = false
+  array[1] = false if array.size > 1
   2.upto(array.size - 1) do |i|
     next unless array[i]
     j = i * i

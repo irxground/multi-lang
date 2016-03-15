@@ -4,8 +4,6 @@ from sequtils import foldl
 
 proc sieve(n: int): seq[bool] =
   var table = newSeq[bool](n + 1)
-  table[0] = false
-  table[1] = false
   for i in 2..high(table):
     table[i] = true
   for i in 2..high(table):

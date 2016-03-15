@@ -23,8 +23,6 @@ int main(string[] args) {
 
 bool[] sieve(int n) {
   bool[] array = new bool[n + 1];
-  array[0] = false;
-  array[1] = false;
   for (int i = 2; i < array.length; i++) {
     array[i] = true;
   }

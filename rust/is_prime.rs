@@ -3,7 +3,9 @@ use std::env;
 fn sieve(n: usize) -> Vec<bool> {
     let mut v = vec![true; n + 1];
     v[0] = false;
-    v[1] = false;
+    if v.len() > 1 {
+        v[1] = false;
+    }
     for i in 2 .. v.len() {
         if v[i] == false {
             continue;
@@ -33,4 +35,3 @@ fn main() {
     }
     println!("");
 }
-
