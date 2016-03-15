@@ -20,18 +20,21 @@ fn sieve(n: usize) -> Vec<bool> {
 }
 
 fn main() {
-    // TODO: support invalid arguments
-    let values: Vec<usize> = env::args().skip(1).map(|s| s.parse().unwrap()).collect();
+    let values: Vec<Option<usize>> = env::args().skip(1).map(|s| s.parse().ok()).collect();
     if values.len() == 0 {
         return;
     }
-    let max = *values.iter().max().unwrap();
+    let max: usize = values.iter().filter_map(|x| *x).max().unwrap_or(0);
     let prime_table = sieve(max);
-    for &i in &values {
-        if prime_table[i] {
-            print!("Yes ");
+    for &x in &values {
+        if let Some(i) = x {
+            if prime_table[i] {
+                print!("Yes ");
+            } else {
+                print!("No ");
+            }
         } else {
-            print!("No ");
+            print!("Err ");
         }
     }
     println!("");
