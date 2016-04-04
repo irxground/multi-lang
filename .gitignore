@@ -28,6 +28,10 @@ pascal/*
 rust/*
 !rust/*.rs
 
+# Rust
+swift/*
+!swift/*.swift
+
 # Vala
 vala/*
 !vala/*.vala
